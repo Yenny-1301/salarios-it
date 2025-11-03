@@ -1,3 +1,69 @@
 :host {
   display: block;
+  height: 80vh;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+h1{
+  text-align: center;
+  color: white;
+  font-size: x-large;
+}
+
+h3{
+  text-align: center;
+  color: white;
+  font-size: large;
+}
+
+button {
+  padding: 0.50rem;
+  border: none;
+  background-color: #9041D1;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: black 0px 4px 10px -1px;
+  border-radius: 50px;
+}
+button:hover, button:focus {
+  background-color: #7a32b8;
+}
+
+input{
+  background-color: transparent;
+  color: white;
+  border-radius: 50px;
+}
+input::placeholder {
+  color: white;
+}
+
+input:focus {
+  background-color: transparent;
+  color: white ;
+}
+span{
+  border-radius: 50px;
+  background-color: transparent;
+  border-right: none;
+  color: white;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+  font-size: small;
+  align-self: center;
 }
