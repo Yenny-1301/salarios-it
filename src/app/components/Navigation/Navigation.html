@@ -8,18 +8,29 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link active" aria-current="page"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Inicio
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Nosotros</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/create-salary"
+          >
+            Nuevo Registro
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-file-earmark-plus "></i>Nuevo Registro</a>
-        </li>        
       </ul>
-      <form class="d-flex" role="search">
-        <a class="btn btn-outline-primary" href="login">Ingresar</a>
-      </form>
+      <div class="d-flex gap-3" id="auth-buttons">
+        <a routerLinkActive="active" routerLink="/login">
+          Iniciar Sesión
+        </a>
+        <a routerLinkActive="active" routerLink="/sign-in">
+          Registro
+        </a>
+      </div>
     </div>
   </div>
 </nav>

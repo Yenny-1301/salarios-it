@@ -1,3 +1,18 @@
 :host {
   display: block;
 }
+
+#auth-buttons a{
+  text-decoration: none;
+  color: #0078E8;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #0078E8;
+}
+
+.active {
+  font-weight: bold;
+  text-decoration: underline!important;
+}
+
+

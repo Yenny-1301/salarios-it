@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.create-salary-page{
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.intro-text{
+  text-align: center;
+}
+.form-container{
+  width: 600px;
+  min-height: 200px;
+  border-radius: 20px;
+  background-color: #FFFBFB;
+  color: #000000;
+}

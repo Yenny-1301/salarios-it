@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SalaryForm } from '../../components/salary-form/salary-form';
 
 @Component({
-  selector: 'app-salaries',
+  selector: 'app-create-salary',
   imports: [SalaryForm],
-  templateUrl: './Salaries.html',
-  styleUrl: './Salaries.css',
+  templateUrl: './Create-salary.html',
+  styleUrl: './Create-salary.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Salaries { }
+export class CreateSalary { }
