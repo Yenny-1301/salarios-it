@@ -1,28 +1,40 @@
 <section class="inquiry-form-container">
     <form>
         <div class="form-floating">
-            <select class="form-select">
+            <select class="form-select" id="areaSelect" (change)="selectedArea.set(areaSelect.value)" #areaSelect
+                aria-label="Area del Empleo" name="area">
                 <option value="" selected disabled>Seleccione una opción...</option>
+                <option *ngFor="let area of work_fields" [value]="area">{{ area }}</option>
             </select>
-            <label for="areaSelect">Título del Empleo</label>
+            <label for="areaSelect">Area del Empleo</label>
         </div>
         <div class="form-floating">
-            <select class="form-select">
+            <select class="form-select" id="locationSelect" (change)="selectedLocation.set(locationSelect.value)"
+                #locationSelect aria-label="Locación">
                 <option value="" selected disabled>Seleccione una opción...</option>
+                <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
             </select>
             <label for="locationSelect">Locación</label>
         </div>
         <div class="form-floating">
-            <select class="form-select">
+            <select class="form-select" id="puestoSelect" (change)="selectedPosition.set(puestoSelect.value)"
+                #puestoSelect aria-label="Puesto">
                 <option value="" selected disabled>Seleccione una opción...</option>
+                <option *ngFor="let position of positions" [value]="position">{{ position }}</option>
             </select>
             <label for="puestoSelect">Puesto</label>
         </div>
         <div class="form-floating">
-            <select class="form-select">
+            <select class="form-select" id="nivelSelect" aria-label="Nivel de experiencia"
+                (change)="selectedExperienceLevel.set(nivelSelect.value)" #nivelSelect name="experienceLevel">
                 <option value="" selected disabled>Seleccione una opción...</option>
+                <option *ngFor="let level of experience_levels" [value]="level">{{ level }}</option>
             </select>
             <label for="nivelSelect">Nivel de experiencia</label>
+        </div>
+        
+        <div class="button-container">
+            <button class="btn btn-primary" (click)="submitForm()" type="button">Consultar</button>
         </div>
     </form>
 </section>
