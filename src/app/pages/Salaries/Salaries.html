@@ -1,47 +1,63 @@
 <section class="create-salary-page">
-  <div class="intro-text">
-    <h2>Salarios Promedio IT</h2>
-    <p>
-      Comparte tu información salarial y ayudanos a construir transparencia laboral
-    </p>
-  </div>
-  <div class="content-container">
-    <!-- left column -->
-    <div class="form-container content-box">
-      <app-inquiry-form></app-inquiry-form>
+    <div class="intro-text">
+        <h2>Salarios Promedio IT</h2>
+        <p>
+            Comparte tu información salarial y ayudanos a construir transparencia laboral
+        </p>
     </div>
-    <!-- right column -->
-    <div class="stats-container">
-      <!-- card nuevo registro -->
-      <div class="redirection-container content-box">
-        <div class="card-registro">
-          <a class="nav-link" routerLinkActive="active" routerLink="/create-salary"><i
-              class="bi bi-file-earmark-plus fs-1 text-primary"></i>
-            <h4>Nuevo Registro</h4>
-          </a>
+    <div class="content-container">
+        <!-- left column -->
+        <div class="form-container content-box">
+            <app-inquiry-form (salaryCalculated)="onSalaryCalculated($event)"
+                (calculationStarted)="onCalculationStarted()">
+            </app-inquiry-form>
         </div>
-      </div>
-      <div class="avg-container content-box">
-        <div>
-          <h3>Salario Promedio</h3>
+        <!-- right column -->
+        <div class="stats-container">
+            <!-- card nuevo registro -->
+            <div class="redirection-container content-box">
+                <div class="card-registro">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/create-salary"><i
+                            class="bi bi-file-earmark-plus fs-1 text-primary"></i>
+                        <h4>Nuevo Registro</h4>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sección del promedio ACTUALIZADA -->
+            <div class="avg-container content-box">
+                <div>
+                    <h3>Salario Promedio</h3>
+                </div>
+                <div class="salary-display">
+                    <div><i class="bi bi-coin text-primary salary-icon"></i></div>
+                    <div class="salary-amount">
+                        <!-- Mostrar el promedio calculado -->
+                        <h2 *ngIf="averageSalary() !== null && !isLoading()" class="salary-number">
+                            {{ formatSalary(averageSalary()!) }}
+                        </h2>
+                        <!-- Mostrar loading -->
+                        <h2 *ngIf="isLoading()" class="salary-number loading">
+                            ...
+                        </h2>
+                        <!-- Mostrar valor por defecto cuando no hay cálculo -->
+                        <h2 *ngIf="averageSalary() === null && !isLoading()" class="salary-number">
+                            $60,000
+                        </h2>
+                    </div>
+                    <div class="salary-currency">
+                        <span>USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-container content-box">
+                <p>Información Adicional</p>
+            </div>
         </div>
-        <div>
-          <div><i class="bi bi-coin display-4 text-primary"></i></div>
-          <div>
-            <h2 class="display-1">60</h2>
-          </div>
-          <div>
-            <h5>usd</h5>
-          </div>
-        </div>
-      </div>
-      <div class="info-container content-box">
-        <p>Información Adicional</p>
-        <!-- <app-salary-stats></app-salary-stats> -->
-      </div>
     </div>
-  </div>
-  <div class="content-container content-box p-3">
-    Nota: Los salarios varían significativamente, esto es solo una estimación para el nivel internacional de empleados.
-  </div>
+    <div class="content-container content-box p-3">
+        Nota: Los salarios varían significativamente, esto es solo una estimación para el nivel internacional de
+        empleados.
+    </div>
 </section>
