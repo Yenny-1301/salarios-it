@@ -59,7 +59,7 @@ export class SalaryService {
 
   // Enviar datos del formulario de salario
   submitSalary(salaryData: SalaryFormData): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/salaries`, salaryData);
+    return this.http.post<any>(`${this.apiUrl}/salaries/`, salaryData);
   }
 
   // Obtener todos los salarios
