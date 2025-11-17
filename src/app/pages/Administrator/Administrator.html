@@ -1,0 +1,101 @@
+<section class="administrator-page">
+    <div class="intro-text">
+        <h2>Panel del Administrador</h2>
+    </div>
+
+    <div class="content-container">
+        <div class="form-container content-box">
+            <h4>Ingresar nuevo empleo</h4>
+            <div *ngIf="mostrarError" class="error-box">
+                Todos los campos son obligatorios y el salario debe ser positivo.
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <select class="form-select" [(ngModel)]="nuevoSalario.area" required>
+                        <option value="" disabled selected>Area</option>
+                        <option *ngFor="let area of areas" [value]="area">{{ area }}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <select class="form-select" (click)="ocultarMensaje()" [(ngModel)]="nuevoSalario.location" required>
+                        <option value="" disabled selected>Locación</option>
+                        <option *ngFor="let loc of locations" [value]="loc">{{ loc }}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <select class="form-select" (click)="ocultarMensaje()" [(ngModel)]="nuevoSalario.position" required>
+                        <option value="" disabled selected>Posición</option>
+                        <option *ngFor="let pos of positions" [value]="pos">{{ pos }}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <select class="form-select" (click)="ocultarMensaje()" [(ngModel)]="nuevoSalario.experienceLevel"
+                        required>
+                        <option value="" disabled selected>Experiencia</option>
+                        <option *ngFor="let level of experienceLevels" [value]="level">{{ level }}</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" (click)="ocultarMensaje()" style="width: 100%; height: 38px; margin-top: 0;"
+                        class="form-control input_salario" [(ngModel)]="nuevoSalario.salary" placeholder="Salario anual"
+                        required />
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+                <button (click)="guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-container" style="flex-direction: column; width: 100%; margin-top: 10px;">
+        <div class="content-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Área del empleo</th>
+                        <th>Locación</th>
+                        <th>Puesto</th>
+                        <th>Nivel Exp.</th>
+                        <th>Salario anual (USD)</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let salario of paginatedSalarios; let i = index">
+                        <td>{{ salario.area }}</td>
+                        <td>{{ salario.location }}</td>
+                        <td>{{ salario.position }}</td>
+                        <td>{{ salario.experienceLevel }}</td>
+                        <td>{{ salario.salary | currency:'USD' }}</td>
+                        <td>
+                            <button (click)="editar(i)"
+                                style="all: unset; color: blue; cursor: pointer; margin-right: 10px;">Editar</button>
+                            <button (click)="detalle(i)"
+                                style="all: unset; color: green; cursor: pointer; margin-right: 10px;">Detalle</button>
+                            <button (click)="borrar(i)" style="all: unset; color: red; cursor: pointer;">Borrar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div *ngIf="mostrarMensajeInicial" class="mensaje-inicial fade-out alert alert-warning"
+                [class.oculto]="!mostrarMensajeInicial">
+                Aún no ha ingresado un nuevo empleo.
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                <div class="pagination">
+                    <button class="btn btn-secondary mr-3" [disabled]="currentPage === 1"
+                        (click)="cambiarPagina(currentPage - 1)">Anterior</button>
+                    <span class="span_numeracion">Página {{ currentPage }} de {{ totalPages }}</span>
+                    <button class="btn btn-secondary ml-3" [disabled]="currentPage === totalPages"
+                        (click)="cambiarPagina(currentPage + 1)">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

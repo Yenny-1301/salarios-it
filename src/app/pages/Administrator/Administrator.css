@@ -1,0 +1,138 @@
+h4,
+table,
+.pagination {
+    color: #333 !important
+}
+
+.span_numeracion {
+    display: block;
+    margin: 0 10px;
+    line-height: 20px;
+    padding-top: 5px;
+}
+
+.input_salario {
+    width: 100%;
+    height: 38px;
+}
+
+.mensaje-inicial {
+    width: 100%;
+    text-align: center;
+    color: #000;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+:host {
+    display: block;
+}
+
+.administrator-page {
+    padding: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-text {
+    text-align: center;
+}
+
+
+.content-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.content-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-container input {
+    width: calc(20% - 10px);
+    margin: 10px 5px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: #1e2f91;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #153078;
+}
+
+/* Tabla de empleados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #f0f2f5;
+}
+
+th,
+td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+}
+
+td:last-child a {
+    margin-right: 10px;
+    color: #1e2f91;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+td:last-child a:hover {
+    text-decoration: underline;
+}
+
+.error-box {
+    color: #fff;
+    background-color: #e74c3c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
